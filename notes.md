@@ -11,6 +11,11 @@ Additionally, existing schedule headers are truncated on Schedule Update via CLI
 On any edit to a schedule via the UI (Workflow Type, task queue, schedule spec), the encoded headers are
 iteratively encoded, leading to multiple levels of encoding.
 
+This can lead to Workflow Task failures when the Tracing Interceptor attempts to read the header:
+https://github.com/temporalio/sdk-go/blob/master/interceptor/tracing_interceptor.go#L966
+Since the Tracing Interceptor attempts to unmarshal a map of string->object into a map of string->string,
+the unmarshal fails and causes a Workflow Task Failure.
+
 ##### Initially Set Schedule with Headers
 ```bash
 ❯ tmprl schedule describe -s schedule -o json
