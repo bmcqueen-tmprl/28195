@@ -8,7 +8,7 @@ require (
 	github.com/golang/mock v1.7.0-rc.1
 	github.com/golang/snappy v0.0.4
 	github.com/google/uuid v1.6.0
-	github.com/nexus-rpc/sdk-go v0.6.0
+	github.com//nexus-rpc/sdk-go v0.6.0
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/pborman/uuid v1.2.1
 	github.com/prometheus/client_golang v1.18.0
